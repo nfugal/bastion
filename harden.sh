@@ -39,7 +39,7 @@ find $sysdirs -xdev -regex '.*apk.*' -exec rm -fr {} +
 #   /etc/group-
 find $sysdirs -xdev -type f -regex '.*-$' -exec rm -f {} +
 
-# give read permission to ssh key files
+# Ensure read permission for ssh key files
 chmod a+r /etc/ssh/ssh_*
 
 # Remove all suid files.

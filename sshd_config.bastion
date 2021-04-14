@@ -1,0 +1,24 @@
+# This is a trimmed down version with only the options applicable to my bastion host
+
+PubkeyAuthentication yes
+
+ChallengeResponseAuthentication no
+
+AllowTcpForwarding yes
+
+X11Forwarding no
+
+PrintMotd no
+
+PermitTunnel yes
+
+# Allow client to pass locale environment variables
+AcceptEnv LANG LC_*
+
+PasswordAuthentication no
+
+Port 9022
+
+AllowUsers dev
+
+StrictModes no

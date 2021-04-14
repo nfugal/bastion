@@ -1,4 +1,4 @@
-# Minimal Linux docker box just for use as ssh bastion
+# Minimal Linux docker for use as an ssh bastion
 
 ## Usage
 

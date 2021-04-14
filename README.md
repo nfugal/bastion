@@ -8,7 +8,7 @@ Create a `authorized_keys` file with all public keys that can connect to this ba
 
 Then run the following command to start the bastion. 
 
-	docker run --name bastion -d --restart=always -v $(pwd)/authorized_keys:/home/dev/.ssh/authorized_keys:ro -p 9022:9022 chentm/bastion
+	docker run --name bastion -d --restart=always -v $(pwd)/authorized_keys:/home/dev/.ssh/authorized_keys:ro -p 9022:9022 nfugal/bastion
 
 To connect through the bastion, first add your key to forward agent: `ssh-add` and use `ssh-add -L` to
 
@@ -24,8 +24,8 @@ Users can do pretty much nothing with the bastion. Only ssh/sshd commands are av
 
 Run the following commands to build the docker image before running `docker run`
 
-	git clone https://github.com/chentmin/bastion.git
-	docker build -t chentm/bastion bastion
+	git clone https://github.com/nfugal/bastion.git
+	docker build -t nfugal/bastion bastion
 
 It only needs to download ~2MB from Github, although it could be slow to download from China.
 

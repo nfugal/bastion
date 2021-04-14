@@ -1,6 +1,9 @@
 FROM alpine:3
 RUN apk --update add openssh && rm -f /var/cache/apk/*
+#RUN cd /etc/ssh && ssh-keygen -A
 RUN ssh-keygen -A
+RUN chmod a+r /etc/ssh/ssh_*
+RUN sed '/AllowTcpForwarding/d' /etc/ssh/sshd_config
 RUN echo "PermitRootLogin no" >> /etc/ssh/sshd_config && \
   echo "PasswordAuthentication no" >> /etc/ssh/sshd_config && \
   echo "ChallengeResponseAuthentication no" >> /etc/ssh/sshd_config && \

@@ -18,7 +18,7 @@ I prefer to use the bastion with the [ProxyJump](https://www.redhat.com/sysadmin
 
 The bastion does not utilize a firewall itself. Take care of that another way, on the Docker host, at the edge, etc.
 
-Users can't do much on the bastion after hardening. If you see a way to improve the hardness, let me know.
+Currently, the `harden.sh` stops the container from correctly accessing the `authorized_keys` file. If anyone knows why, let me know. 
 
 ## Build the image yourself
 

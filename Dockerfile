@@ -1,5 +1,4 @@
-FROM scratch
-ADD rootfs.tar.gz /
+FROM alpine:3
 RUN apk --update add openssh && rm -f /var/cache/apk/*
 RUN ssh-keygen -A
 RUN echo "PermitRootLogin no" >> /etc/ssh/sshd_config && \

@@ -15,7 +15,7 @@ Change the port to match the one specified in your `sshd_config` then run the fo
 	   -v $(pwd)/authorized_keys:/home/dev/.ssh/authorized_keys:ro \
 	   -v $(pwd)/sshd_config:/etc/ssh/sshd_config:ro \
 	   -p 9022:9022 \
-	 nfugal/bastion
+	 nfugal/docker-bastion
 
 I prefer to use the bastion with the [ProxyJump](https://www.redhat.com/sysadmin/ssh-proxy-bastion-proxyjump) directive in a client's `.ssh/config` file. Much less typing than specifying things every single time.
 
@@ -23,14 +23,14 @@ I prefer to use the bastion with the [ProxyJump](https://www.redhat.com/sysadmin
 
 The bastion does not utilize a firewall itself. Take care of that another way, on the Docker host, at the edge, etc.
 
-Currently, the `harden.sh` stops the container from correctly accessing the `authorized_keys` file. If anyone knows why, let me know. 
+Currently, the `harden.sh` stops the container from correctly accessing the `authorized_keys` file. If anyone knows why, let me know.
 
 ## Build the image yourself
 
 You can build the image yourself with the following commands:
 
 	git clone https://github.com/nfugal/bastion.git
-	docker build -t nfugal/bastion bastion
+	docker build -t <fork-name-of-your-choice>/bastion bastion
 
 With that done, you can use the `docker run` command above.
 

@@ -18,4 +18,4 @@ VOLUME /home/dev/.ssh
 
 USER dev
 
-CMD ["/usr/sbin/sshd", "-D"]
+CMD ["/usr/sbin/sshd", "-D", "-e"]

@@ -1,5 +1,7 @@
 FROM alpine:3
 
+LABEL org.opencontainers.image.source=https://github.com/nfugal/bastion
+
 RUN apk --update add openssh && rm -f /var/cache/apk/*
 
 RUN cd /etc/ssh && ssh-keygen -A

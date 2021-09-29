@@ -14,9 +14,9 @@ RUN adduser -D dev && passwd -d dev && mkdir /home/dev/.ssh && chown dev:nogroup
 
 VOLUME /home/dev/.ssh
 
-#ADD harden.sh /usr/bin/harden.sh
+ADD harden.sh /usr/bin/harden.sh
 
-#RUN chmod 700 /usr/bin/harden.sh && /usr/bin/harden.sh
+RUN chmod 700 /usr/bin/harden.sh && /usr/bin/harden.sh
 
 USER dev
 

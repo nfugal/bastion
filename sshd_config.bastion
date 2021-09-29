@@ -22,3 +22,5 @@ Port 9022
 AllowUsers dev
 
 StrictModes no
+
+PidFile /home/dev/sshd.pid

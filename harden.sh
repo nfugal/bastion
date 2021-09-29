@@ -78,12 +78,14 @@ rm -fr /root
 # Remove fstab since we do not need it.
 rm -f /etc/fstab
 
+# Remove terminfo(s)
+rm -rf /etc/terminfo/[a-y]*
+
 # Remove broken symlinks (because we removed the targets above).
 find $sysdirs -xdev -type l -exec test ! -e {} \; -delete
 
 # Remove all but a handful of admin commands.
 find /usr/bin /bin ! -type d \
-  -a ! -name sh \
-  -a ! -name ssh \
-  -a ! -name busybox \
+  -a ! -wholename "/usr/bin/ssh" \
+  -a ! -wholename "/bin/busybox" \
   -delete

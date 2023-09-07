@@ -17,7 +17,7 @@ Change the port to match the one specified in your `sshd_config` then run the fo
 	   -p 9022:9022 \
 	 ghcr.io/nfugal/docker-bastion
 
-I prefer to use the bastion with the [ProxyJump](https://www.redhat.com/sysadmin/ssh-proxy-bastion-proxyjump) directive in a client's `.ssh/config` file. Much less typing than specifying things every single time.
+I prefer to use the bastion with the [ProxyJump](https://www.redhat.com/sysadmin/ssh-proxy-bastion-proxyjump) directive in a client's `~/.ssh/config` file. Much less typing than specifying things every single time.
 
 ## Security
 
@@ -31,11 +31,11 @@ You can build the image yourself with the following commands:
 	git clone https://github.com/nfugal/bastion.git
 	docker build -t <fork-name-of-your-choice>/bastion bastion
 
-With that done, you can use the `docker run` command above.
+With that done, you can essentially use the `docker run` command above.
 
 ## Credits
 
-Thanks to [chentmin](https://github.com/chentmin/bastion) for the original work. My version relies heavily on theirs.
+Thanks to [chentmin](https://github.com/chentmin/bastion) for the original work. My version relies heavily on their's.
 
 This bastion is based on [Alpine Linux v3](https://hub.docker.com/_/alpine/).
 

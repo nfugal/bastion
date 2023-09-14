@@ -1,4 +1,4 @@
-name: Docker
+name: Create and publish a Docker image
 
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
@@ -6,8 +6,6 @@ name: Docker
 # documentation.
 
 on:
-  schedule:
-    - cron: '19 16 * * *'
   push:
     branches: [ "master" ]
     # Publish semver tags as releases.

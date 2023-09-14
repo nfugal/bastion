@@ -1,6 +1,8 @@
 FROM alpine:3
 
 LABEL org.opencontainers.image.source=https://github.com/nfugal/bastion
+LABEL org.opencontainers.image.description="An SSH bastion based on Alpine3"
+LABEL org.opencontainers.image.licenses=MIT
 
 RUN apk --update add openssh && rm -f /var/cache/apk/*
 

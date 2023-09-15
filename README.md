@@ -2,13 +2,13 @@
 
 ## Usage
 
-Create an `authorized_keys` file and add the public keys you wish to use for this bastion. Make the file publicly readable or the user in the docker will not be able to read it.
+Create an `authorized_keys` file and add the public keys you wish to use for this bastion. Make the file publicly readable or the user in the bastion container will not be able to read it.
 
 ```shell
-	chmod a+r authorized_keys
+chmod a+r authorized_keys
 ```
 
-Put the options you want in an `sshd_config` file. Suggested options are in the `sshd_config.bastion` file in this repo.
+Put the options you want in an `sshd_config` file. Suggested options are in the `sshd_config.bastion` [file in this repo](https://github.com/nfugal/bastion/blob/master/sshd_config.bastion).
 
 Change the port to match the one specified in your `sshd_config` then run the following command to start the bastion.
 
@@ -18,7 +18,7 @@ docker run --name bastion -d \
    -v /some/path/you/like/authorized_keys:/home/dev/.ssh/authorized_keys:ro \
    -v /some/path/you/like/sshd_config:/etc/ssh/sshd_config:ro \
    -p 9022:9022 \
- ghcr.io/nfugal/docker-bastion
+ ghcr.io/nfugal/bastion
 
 ```
 
@@ -31,7 +31,7 @@ version: "3.7"
 services:
   bastion:
     container_name: bastion
-    image: ghcr.io/nfugal/docker-bastion:latest
+    image: ghcr.io/nfugal/bastion:latest
     restart: unless-stopped
     logging:
       driver: "json-file"
@@ -47,7 +47,7 @@ services:
 
 I prefer to use the bastion with the [ProxyJump](https://www.redhat.com/sysadmin/ssh-proxy-bastion-proxyjump) directive in a client's `~/.ssh/config` file. Much less typing than specifying things every single time you connect to a target host.
 
-For example, placing the following in a client's `~/.ssh/config` would allow accessing `targetmachine1` through the bastion with a simple `ssh targetmachine1` rather than the longer and more tedious to type `ssh -J dev@bastion.local.lan:9022 user@targetmachine1`. Additionally you can specify multiple target hosts in a client's `~/.ssh/config`
+For example, placing the following in a client's `~/.ssh/config` would allow accessing `targetmachine1` through the bastion with a simple `ssh targetmachine1`, rather than the longer and more tedious to type `ssh -J dev@bastion.local.lan:9022 user@targetmachine1`. You can specify multiple target hosts, and many other things, in a client's `~/.ssh/config`
 
 ```ssh-config
 ### bastion host definition
